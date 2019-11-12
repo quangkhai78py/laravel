@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Comment;
 use Session;
 use Auth;
+use Mail;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -113,7 +114,6 @@ class ProductController extends Controller
     //cách thứ 1 xử lý giỏ hàng bằng session thông qua ajax
     public function getCart(Request $request){
         $id = $request->getProduct_id;
-        $showCart = $request->showCart;
 
         $getProduct = Product::where('id', $id)->get();
         
@@ -150,17 +150,19 @@ class ProductController extends Controller
 
         $request->session()->put('cart',$cart);
 
-        if (!empty($showCart) &&  $showCart > 0) {
-            $total = $showCart + 1;
-            return response()->json(['success' => $total]);
+        $tong = 0;
+        foreach ($cart as $key => $value) {     
+            $tong += $cart[$key]['quantily'];           
         }
+
+        echo $tong;
     }
     //delete session
     public function deleteCart($id)
     {
         if (!empty(Session::has('cart'))) {
             $cart = Session::get('cart');
-            unset ($cart[$id]);
+            unset($cart[$id]);
             Session::put('cart',$cart);
         }
         return redirect()->back()->with('success', __('Delete success.'));
@@ -209,7 +211,13 @@ class ProductController extends Controller
         }
 
         $request->session()->put('cart',$cart);
-        return response()->json();     
+
+        $tong = 0;
+        foreach ($cart as $key => $value) {     
+            $tong += $cart[$key]['quantily'];           
+        }
+
+        echo $tong;     
     }
 
     //xử lý lấy sản phẩm sau khi search
@@ -248,12 +256,16 @@ class ProductController extends Controller
             $information['quantily'] = $value['quantily'];
             $information['price'] = $value['price'];
 
-            $save = History_oder::create($information);     
-        }
+            $save = History_oder::create($information);
+
+            Mail::send('frontend.email.sendmail', array(), function($message){
+                $message->to('nghiatrong0312@gmail.com', 'Visitor')->subject('Visitor Feedback!');
+            });
         if ($save){             
                 Session::forget('cart');
                 return response()->json(['success'=>'Bạn đã đặng hàng thành công']);
             }
+        }
 
     }
 

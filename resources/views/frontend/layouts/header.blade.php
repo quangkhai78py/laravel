@@ -72,7 +72,20 @@
 								
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="{{url('/checkout/product')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="{{url('/product/cart')}}"><i class="fa fa-shopping-cart"></i>Cart<input style="width: 22px;border: none;" id="cart" value="<?= (!empty(Session::get('cart'))? count(Session::get('cart')) : '' ) ?>"></a></li>
+								<li><a href="{{url('/product/cart')}}"><i class="fa fa-shopping-cart"></i>Cart<input style="width: 22px;border: none;" id="cart" value="<?php
+								if(!empty(Session::get('cart'))){
+									$cart = Session::get('cart');
+									$tong = 0;
+								        foreach ($cart as $key => $value) {     
+								            $tong += $cart[$key]['quantily'];           
+								        }
+
+								        echo $tong;
+								}else{
+									echo '';
+								}
+
+								?>"></a></li>
 								<?php
 									if (Auth::check()) {
 								?>

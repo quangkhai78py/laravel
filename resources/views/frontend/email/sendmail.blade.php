@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
+<head lang="vi">
+	<title>Đơn hàng</title>
+	<meta charset="utf-8">
 </head>
 <body>
-	eeeeeeeeeeeeeeeeeeeeeeeeee
+	
+
 </body>
 </html>

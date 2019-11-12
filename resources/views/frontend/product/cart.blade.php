@@ -133,7 +133,7 @@
 										</td>
 									</tr>
 									<?php
-									
+										
 										$totalPrice = $totalPrice + $valueCart['price'];
 										
 									?>
@@ -227,6 +227,7 @@
 			$('.cart_quantity_button button').click(function(){
             	var cart_quantity_input = $(this);
 				var getProduct_id = $(this).attr('id');
+
 				var getParent = $(this).parent();
 				var totalPrice = parseInt($('#totalPrice').val());
 				var getValue = parseInt(getParent.find('input').val());
@@ -263,7 +264,9 @@
                     	if(cart_quantity_input.hasClass("cart_quantity_down")){
                     		getValue = getValue - 1;
                     		getParent.find('input').val(getValue);
-                    	}                   	
+                    	}
+
+                    	$('#cart').val(data);               	
                     }      
             	});
             	

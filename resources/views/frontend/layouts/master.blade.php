@@ -57,7 +57,6 @@
 
             $('a').click(function(){
                 var getProduct_id = $(this).attr('id');
-               
                 $.ajax({
                     url:'/product/cart',
                     type: 'post',
@@ -66,7 +65,9 @@
                         getProduct_id : getProduct_id,
                     },                   
                     dataType: 'json',
-                        
+                    success:function(data){
+                        $('#cart').val(data);                  
+                    }
                 });
             });
         });
