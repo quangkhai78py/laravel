@@ -32,17 +32,21 @@
             @foreach ($getHistoryOrder as $valueOrder)
               @foreach ($getUser as $valueUser)
                 @if($valueUser['id'] == $valueOrder['user_id'])
+                   <?php $avatar = json_decode($valueOrder['avatar'], true); ?>
                   <tr>      
                     <td scope="row">{{$valueOrder['id']}}</td>
                     <td scope="row">{{$valueUser['name']}}</td>
+                    <td scope="row"><img style="width: 50px;" src="{{URL::to('upload/product/'.$valueUser['user_id'].'/'.$avatar['0'])}}"></td>
                     <td scope="row">{{$valueOrder['product_name']}}</td>
                     <td scope="row">{{$valueOrder['quantily']}}</td>
                     <td scope="row">{{number_format($valueOrder['price'])}}</td>
                   </tr>
                 @endif
               @endforeach
-            @endforeach 	
+            @endforeach
       </tbody>
     </table>
-
+      <div style="text-align: center;">
+        {{$getHistoryOrder->links()}}
+      </div>
 @endsection

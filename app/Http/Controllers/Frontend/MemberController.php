@@ -61,8 +61,7 @@ class MemberController extends Controller
                 $information['price'] = $value['price'];
                 $save = History_oder::create($information);
             }
-              
-        });
+            
             if ($save) {             
                     Session::flush();
                     return redirect('/');

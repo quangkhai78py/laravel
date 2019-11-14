@@ -129,12 +129,15 @@
 											</p>
 										</td>
 										<td class="cart_delete">
-											<a href="{{url('/product/cart/delete/'.$valueCart['id'])}}" class="cart_quantity_delete"><i class="fa fa-times"></i></a>
+											<form action="{{url('/product/cart/delete/'.$valueCart['id'])}}">
+												<button>Xoá</button>
+											</form>
 										</td>
 									</tr>
 									<?php
-										
-										$totalPrice = $totalPrice + $valueCart['price'];
+
+										$PriceProduct = $valueCart['price'] * $valueCart['quantily'];
+										$totalPrice = $totalPrice + $PriceProduct;
 										
 									?>
 									@endif
@@ -142,6 +145,9 @@
 							@endif
 						@endforeach
 						@if(!empty($totalPrice))
+						<?php
+						
+						?>
 							<tr>
 								<td colspan="4">&nbsp;</td>
 								<td colspan="4" style=" width: 272px;}" >
@@ -153,6 +159,7 @@
 										<tr>
 											<td>Total</td>
 											<td><span><input style="border: none;" id="totalPrice" value="<?= !empty($totalPrice)? $totalPrice : ''?>" type="text"></span></td>
+
 										</tr>
 										<tr>
 											<td>
@@ -207,6 +214,7 @@
                     	var IntPriceInput = parseInt(getValueInput); 
                     	var total = parseInt(IntPriceInput + IntPrice);
                     	var totalPriceCart = parseInt(IntPrice + totalPrice);
+  
                     	$('#totalPrice').val(totalPriceCart);
                     	<?php foreach ($getProduct as $key => $value): ?>
 						if (getProduct_id == '<?php echo $value['id'] ?>') {

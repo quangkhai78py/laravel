@@ -17,7 +17,7 @@ class HistoryOderController extends Controller
      */
     public function showHistoryTable()
     {   
-        $getHistoryOrder = History_oder::all();
+        $getHistoryOrder = History_oder::paginate(9);
         $getUser = User::all();
         return view('admin.history_order.history_table',compact('getHistoryOrder','getUser'));
     }

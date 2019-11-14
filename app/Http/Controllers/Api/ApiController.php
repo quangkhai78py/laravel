@@ -1,20 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class FeedbackController extends Controller
+use App\Models\Blog;
+class ApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function showFeedback()
-    {   
-        return view('frontend.email.sendmail');
+    public function list()
+    {
+       $blog = Blog::all();
+       
+        return response()->json([
+            'status' => 200,
+            'blog' => $blog
+        ]);
     }
 
     /**

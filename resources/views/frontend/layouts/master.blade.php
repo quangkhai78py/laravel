@@ -61,7 +61,6 @@
                     url:'/product/cart',
                     type: 'post',
                     data:{
-          
                         getProduct_id : getProduct_id,
                     },                   
                     dataType: 'json',

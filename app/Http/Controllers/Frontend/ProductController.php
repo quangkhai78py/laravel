@@ -120,6 +120,7 @@ class ProductController extends Controller
         foreach ($getProduct as $key => $value) {
              $product_price = $value['price'];
              $product_name = $value['product'];
+             $product_image = $value['avatar'];
          } 
         // $request->session()->flush();
         if (empty($request->session()->has('cart'))) {
@@ -127,6 +128,7 @@ class ProductController extends Controller
                 'id' => $id,
                 'product' => $product_name,
                 'price' => $product_price,
+                'image' => $product_image,
                 'quantily' => 1,         
             );
         }else{
@@ -135,14 +137,16 @@ class ProductController extends Controller
                 $cart[$id] = array(
                     'id' => $id,
                     'product' => $product_name,
-                    'price' => $product_price,                
+                    'price' => $product_price,
+                    'image' => $product_image,               
                     'quantily' => $cart[$id]['quantily']+1,
                 );
             }else{
                 $cart[$id] = array(
                     'id' => $id,  
                     'product' => $product_name,      
-                    'price' => $product_price,           
+                    'price' => $product_price,
+                    'image' => $product_image,          
                     'quantily' => 1,
                 );             
             }
@@ -164,18 +168,21 @@ class ProductController extends Controller
             $cart = Session::get('cart');
             unset($cart[$id]);
             Session::put('cart',$cart);
+
         }
+
         return redirect()->back()->with('success', __('Delete success.'));
     }
 
     public function addCart(Request $request)
     {
         $id = $request->getProduct_id;
-        $product_price = $request->product_price;
+        $total = $request->product_price;
         $getProduct = Product::where('id', $id)->get();
         
         foreach ($getProduct as $key => $value) {
              $product_name = $value['product'];
+             $product_price = $value['price'];
          } 
         $cart = $request->session()->get('cart');
         if (array_key_exists($id, $cart)) {
@@ -183,7 +190,9 @@ class ProductController extends Controller
                 'id' => $id,
                 'product' => $product_name,
                 'price' => $product_price,
-                'quantily' => $cart[$id]['quantily']+1,             
+                'image' => $product_image,
+                'quantily' => $cart[$id]['quantily']+1,
+                'total' =>$total,         
             );
         }
 
@@ -194,11 +203,12 @@ class ProductController extends Controller
     public function downCart(request $request)
     {
         $id = $request->getProduct_id;
-        $product_price = $request->product_price;
+        $total = $request->product_price;
         $getProduct = Product::where('id', $id)->get();
         
         foreach ($getProduct as $key => $value) {
              $product_name = $value['product'];
+             $product_price = $value['price'];
         } 
         $cart = $request->session()->get('cart');
         if (array_key_exists($id, $cart)) {
@@ -206,7 +216,9 @@ class ProductController extends Controller
                 'id' => $id,
                 'product' => $product_name,
                 'price' => $product_price,
+                'image' => $product_image,
                 'quantily' => $cart[$id]['quantily']-1,
+                'total' => $total,
             );
         }
 
@@ -255,17 +267,20 @@ class ProductController extends Controller
             $information['product_name'] = $value['product'];
             $information['quantily'] = $value['quantily'];
             $information['price'] = $value['price'];
-
+            $information['avatar'] = $value['image'];
             $save = History_oder::create($information);
+        }
 
-            Mail::send('frontend.email.sendmail', array(), function($message){
-                $message->to('nghiatrong0312@gmail.com', 'Visitor')->subject('Visitor Feedback!');
+        Mail::send('frontend.email.sendmail', array(
+                'data' => Session::get('cart'),
+            ),     
+            function($message){
+                $message->to('tranquangkhai26121996@gmail.com', 'Visitor')->subject('Visitor Feedback!');
             });
         if ($save){             
                 Session::forget('cart');
                 return response()->json(['success'=>'Bạn đã đặng hàng thành công']);
             }
-        }
 
     }
 

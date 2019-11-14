@@ -65,8 +65,6 @@ Route::group([
 
 	//route of check out product
 	Route::get('/checkout/product','ProductController@ShowcheckOutProduct')->name('Show.checkOut.Product');
-	//route of feedback email for customer
-	Route::get('/feedback','FeedbackController@showFeedback')->name('show.feedback');
 });
 
 //Admin
