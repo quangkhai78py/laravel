@@ -24,8 +24,10 @@
             <th scope="col">STT</th>
             <th scope="col">Tên User</th>
             <th scope="col">Tên Product</th>
-            <th scope="col">Quantily</th>
+            <th scope="col">Image</th>
             <th scope="col">Price</th>
+            <th scope="col">Quantily</th>
+            <th scope="col">Total</th>
           </tr>
       </thead>
         <tbody> 
@@ -34,12 +36,17 @@
                 @if($valueUser['id'] == $valueOrder['user_id'])
                    <?php $avatar = json_decode($valueOrder['avatar'], true); ?>
                   <tr>      
-                    <td scope="row">{{$valueOrder['id']}}</td>
-                    <td scope="row">{{$valueUser['name']}}</td>
-                    <td scope="row"><img style="width: 50px;" src="{{URL::to('upload/product/'.$valueUser['user_id'].'/'.$avatar['0'])}}"></td>
-                    <td scope="row">{{$valueOrder['product_name']}}</td>
-                    <td scope="row">{{$valueOrder['quantily']}}</td>
-                    <td scope="row">{{number_format($valueOrder['price'])}}</td>
+                    <td style="width: 50px;" scope="row">{{$valueOrder['id']}}</td>
+                    <td style="width: 50px;" scope="row">{{$valueUser['name']}}</td>
+                    <td style="width: 50px;" scope="row">{{$valueOrder['product_name']}}</td>
+                    <td style="width: 50px;" scope="row"><img style="width: 50px;" src="{{URL::to('upload/product/'.$valueUser['id'].'/'.$avatar['0'])}}"></td>
+                    <td style="width: 50px;" scope="row">{{number_format($valueOrder['price'])}}</td>
+                    <td style="width: 50px;" scope="row">{{$valueOrder['quantily']}}</td>
+                    <td style="width: 50px;" scope="row">
+                    <?php 
+                        $total = $valueOrder['price'] * $valueOrder['quantily'];
+                        echo $total;
+                    ?></td>
                   </tr>
                 @endif
               @endforeach

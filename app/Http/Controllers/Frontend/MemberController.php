@@ -41,6 +41,7 @@ class MemberController extends Controller
      */
     public function register(MemberRegisterRequest $request)
     {
+
         $fileName = '';
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
@@ -51,17 +52,31 @@ class MemberController extends Controller
         $data['avatar'] = $fileName;
         $data['password'] = Hash::make($request->password);
         $data['level'] = '0';
-
+        
         if($getIdUser = User::create($data)){
             $information['user_id'] = $getIdUser['id'];
+
+            $emailUser = User::where('id',$information['user_id'])->get()->toArray();
             $cart = Session::get('cart');
+
             foreach ($cart as $key => $value) {
                 $information['product_name'] = $value['product'];
                 $information['quantily'] = $value['quantily'];
                 $information['price'] = $value['price'];
+                $information['avatar'] = $value['image'];
                 $save = History_oder::create($information);
             }
-            
+
+            // Mail::send('frontend.email.sendmail', array(    
+            //     'data' => Session::get('cart'),
+            //     'email' => $emailUser[0]['email'],
+            //     'phone' => $emailUser[0]['phone'],
+            //     'user_id' => $information['user_id'],
+            // ),  
+            // function($message){
+            //     $message->to($emailUser[0]['email'], 'Visitor')->subject('Visitor Feedback!');
+            // });
+
             if ($save) {             
                     Session::flush();
                     return redirect('/');

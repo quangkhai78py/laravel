@@ -183,6 +183,7 @@ class ProductController extends Controller
         foreach ($getProduct as $key => $value) {
              $product_name = $value['product'];
              $product_price = $value['price'];
+             $product_image = $value['avatar'];
          } 
         $cart = $request->session()->get('cart');
         if (array_key_exists($id, $cart)) {
@@ -209,7 +210,9 @@ class ProductController extends Controller
         foreach ($getProduct as $key => $value) {
              $product_name = $value['product'];
              $product_price = $value['price'];
-        } 
+             $product_image = $value['avatar'];
+        }
+
         $cart = $request->session()->get('cart');
         if (array_key_exists($id, $cart)) {
             $cart[$id] = array(
@@ -262,7 +265,7 @@ class ProductController extends Controller
     {
         $information['user_id'] = $request->getProduct_id;
         $cart = Session::get('cart');
-        
+        $emailUser = User::where('id',$information['user_id'])->get()->toArray();
         foreach ($cart as $key => $value) {
             $information['product_name'] = $value['product'];
             $information['quantily'] = $value['quantily'];
@@ -271,11 +274,14 @@ class ProductController extends Controller
             $save = History_oder::create($information);
         }
 
-        Mail::send('frontend.email.sendmail', array(
+        Mail::send('frontend.email.sendmail', array(    
                 'data' => Session::get('cart'),
+                'email' => $emailUser[0]['email'],
+                'phone' => $emailUser[0]['phone'],
+                'user_id' => $information['user_id'],
             ),     
             function($message){
-                $message->to('tranquangkhai26121996@gmail.com', 'Visitor')->subject('Visitor Feedback!');
+                $message->to('hoale170294@gmail.com', 'Visitor')->subject('Visitor Feedback!');
             });
         if ($save){             
                 Session::forget('cart');

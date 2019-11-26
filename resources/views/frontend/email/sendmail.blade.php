@@ -33,10 +33,13 @@
 						?>
 						@foreach($data as $valueProduct)
 							<?php
-								$avatar = json_decode($valueProduct['avatar'], true);
+								if (!empty($valueProduct['image'])) {
+									$avatar = json_decode($valueProduct['image'], true);
+								}
 							?>	
-							<tbody>							    
+							<tbody>					
 						    	<td style="border: 1px solid #ddd; padding: 8px;">
+						    	<img src="{{$message->embed('upload/product/'.$user_id.'/'.$avatar['0']) }}"style="width:100px;" />
 						    	</td>		    
 						    	<td style="border: 1px solid #ddd; padding: 8px;">{{$valueProduct['product']}}</td>
 						    	<td style="border: 1px solid #ddd; padding: 8px;">{{$valueProduct['price']}}</td>
@@ -60,8 +63,8 @@
 						<p style="font-size: 30px;font-weight: bolder;color: black;font-family: Arial;">Customer Detail:</p>
 					</div>
 					<div style="width: 100%;display: inline-block;">
-						<p style="margin: 10px 0;">Email:<span>adasd</span></p>
-						<p style="margin: 10px 0;">Number-Phone:<span>adasd</span></p>
+						<p style="margin: 10px 0;">Email:<span>{{$email}}</span></p>
+						<p style="margin: 10px 0;">Number-Phone:<span>{{$phone}}</span></p>
 					</div>
 				</div>
 			</div>
