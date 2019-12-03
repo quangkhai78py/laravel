@@ -20,8 +20,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Comment;
 use Session;
 use Auth;
-use Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 
 class ProductController extends Controller
@@ -48,11 +49,11 @@ class ProductController extends Controller
         $show = '';
         $comment = Comment::where('product_id',$id)->whereNull('id_comment')->get();
         foreach ($comment as $key => $value) {
-            $show .= '<li class="media" style="width: 412px;">                           
+            $show .= '<li class="media" style="width: 412px;">
                             <a class="pull-left" href="#">
                                 <img style="width: 50px;
                                 height: 50px;" class="media-object" src="" alt="">
-                            </a>                                
+                            </a>
                             <div class="media-body">
                                 <ul class="sinlge-post-meta">
                                     <li><i class="fa fa-user"></i>Janis Gallagher</li>
@@ -81,7 +82,7 @@ class ProductController extends Controller
                                 <ul class="sinlge-post-meta">
                                     <li><i class="fa fa-user"></i>Janis Gallagher</li>
                                     <li><i class="fa fa-clock-o"></i>
-                                    '.$value_replay['created_at'].'</li>                                          
+                                    '.$value_replay['created_at'].'</li>
                                 </ul>
                                 <p>'.$value_replay['comment'].'</p>
                                 <a class="btn btn-primary" href="#replay"><i class="fa fa-reply"></i>Replay</a>
@@ -116,12 +117,12 @@ class ProductController extends Controller
         $id = $request->getProduct_id;
 
         $getProduct = Product::where('id', $id)->get();
-        
+
         foreach ($getProduct as $key => $value) {
-             $product_price = $value['price'];
-             $product_name = $value['product'];
-             $product_image = $value['avatar'];
-         } 
+            $product_price = $value['price'];
+            $product_name = $value['product'];
+            $product_image = $value['avatar'];
+        }
         // $request->session()->flush();
         if (empty($request->session()->has('cart'))) {
             $cart[$id] = array(
@@ -129,7 +130,7 @@ class ProductController extends Controller
                 'product' => $product_name,
                 'price' => $product_price,
                 'image' => $product_image,
-                'quantily' => 1,         
+                'quantily' => 1,
             );
         }else{
             $cart = $request->session()->get('cart');
@@ -138,29 +139,80 @@ class ProductController extends Controller
                     'id' => $id,
                     'product' => $product_name,
                     'price' => $product_price,
-                    'image' => $product_image,               
-                    'quantily' => $cart[$id]['quantily']+1,
+                    'image' => $product_image,
+                    'quantily' => $cart[$id]['quantily'] + 1,
                 );
             }else{
                 $cart[$id] = array(
-                    'id' => $id,  
-                    'product' => $product_name,      
+                    'id' => $id,
+                    'product' => $product_name,
                     'price' => $product_price,
-                    'image' => $product_image,          
+                    'image' => $product_image,
                     'quantily' => 1,
-                );             
+                );
             }
         }
-
-        $request->session()->put('cart',$cart);
-
         $tong = 0;
-        foreach ($cart as $key => $value) {     
-            $tong += $cart[$key]['quantily'];           
+
+        foreach ($cart as $key => $value) {
+            $tong += $cart[$key]['quantily'];
         }
 
         echo $tong;
+
+        $request->session()->put('cart',$cart);
+
     }
+
+    public function getCartProductDetails(request $request){
+        $id = $request->id_productDetails;
+
+        $get_Product = Product::where('id',$id)->get();
+
+        foreach ($get_Product as $key => $value) {
+            $product_price = $value['price'];
+            $product_name = $value['product'];
+            $product_image = $value['avatar'];
+        }
+        if (empty($request->session()->has('cart'))) {
+            $cart[$id] = array(
+                'id' => $id,
+                'product' => $product_name,
+                'price' => $product_price,
+                'image' => $product_image,
+                'quantily' => 1,
+            );
+        }else{
+            $cart = $request->session()->get('cart');
+            if (array_key_exists($id, $cart)) {
+                $cart[$id] = array(
+                    'id' => $id,
+                    'product' => $product_name,
+                    'price' => $product_price,
+                    'image' => $product_image,
+                    'quantily' => $cart[$id]['quantily'] + 1,
+                );
+            }else{
+                $cart[$id] = array(
+                    'id' => $id,
+                    'product' => $product_name,
+                    'price' => $product_price,
+                    'image' => $product_image,
+                    'quantily' => 1,
+                );
+            }
+        }
+        $tong = 0;
+
+        foreach ($cart as $key => $value) {
+            $tong += $cart[$key]['quantily'];
+        }
+
+        echo $tong;
+
+        $request->session()->put('cart',$cart);
+    }
+
     //delete session
     public function deleteCart($id)
     {
@@ -179,12 +231,12 @@ class ProductController extends Controller
         $id = $request->getProduct_id;
         $total = $request->product_price;
         $getProduct = Product::where('id', $id)->get();
-        
+
         foreach ($getProduct as $key => $value) {
-             $product_name = $value['product'];
-             $product_price = $value['price'];
-             $product_image = $value['avatar'];
-         } 
+            $product_name = $value['product'];
+            $product_price = $value['price'];
+            $product_image = $value['avatar'];
+        }
         $cart = $request->session()->get('cart');
         if (array_key_exists($id, $cart)) {
             $cart[$id] = array(
@@ -193,12 +245,17 @@ class ProductController extends Controller
                 'price' => $product_price,
                 'image' => $product_image,
                 'quantily' => $cart[$id]['quantily']+1,
-                'total' =>$total,         
+                'total' =>$total,
             );
         }
 
         $request->session()->put('cart',$cart);
-        return response()->json(['success' => '111111111111']);     
+
+        $tong = 0;
+        foreach ($cart as $key => $value) {
+            $tong += $cart[$key]['quantily'];
+        }
+        echo $tong;
     }
 
     public function downCart(request $request)
@@ -206,13 +263,12 @@ class ProductController extends Controller
         $id = $request->getProduct_id;
         $total = $request->product_price;
         $getProduct = Product::where('id', $id)->get();
-        
-        foreach ($getProduct as $key => $value) {
-             $product_name = $value['product'];
-             $product_price = $value['price'];
-             $product_image = $value['avatar'];
-        }
 
+        foreach ($getProduct as $key => $value) {
+            $product_name = $value['product'];
+            $product_price = $value['price'];
+            $product_image = $value['avatar'];
+        }
         $cart = $request->session()->get('cart');
         if (array_key_exists($id, $cart)) {
             $cart[$id] = array(
@@ -228,19 +284,19 @@ class ProductController extends Controller
         $request->session()->put('cart',$cart);
 
         $tong = 0;
-        foreach ($cart as $key => $value) {     
-            $tong += $cart[$key]['quantily'];           
+        foreach ($cart as $key => $value) {
+            $tong += $cart[$key]['quantily'];
         }
 
-        echo $tong;     
+        echo $tong;
     }
 
     //xử lý lấy sản phẩm sau khi search
     public function getSearch(SearchProductRequest $request)
     {
         $product = Product::where('product','like','%'.$request->search.'%')
-                            ->orWhere('price',$request->search)
-                            ->paginate(9);
+            ->orWhere('price',$request->search)
+            ->paginate(9);
 
         return view('frontend.product.searchProduct',compact('product'));
     }
@@ -252,7 +308,7 @@ class ProductController extends Controller
         $array = (explode(' ', $getValueSearch));
         $product = Product::whereBetween('price', [$array[0], $array[2]])->get()->toArray();
         //return view('frontend.product.test',compact('product'));
-        return response()->json(['success' => $product]);  
+        return response()->json(['success' => $product]);
     }
 
     //xử lý phần checkout product
@@ -264,45 +320,43 @@ class ProductController extends Controller
     public function historyTable(request $request)
     {
         $information['user_id'] = $request->getProduct_id;
+
         $cart = Session::get('cart');
-        $emailUser = User::where('id',$information['user_id'])->get()->toArray();
+
+        $data_user = User::where('id' ,$information['user_id'])->get();
+        foreach ($data_user as $key => $value_user) {
+            $email = $value_user['email'];
+        }
+
+        Mail::to($email)->send(new SendMailable($cart, $data_user));
+
         foreach ($cart as $key => $value) {
             $information['product_name'] = $value['product'];
             $information['quantily'] = $value['quantily'];
             $information['price'] = $value['price'];
             $information['avatar'] = $value['image'];
-            $save = History_oder::create($information);
+
+            History_oder::create($information);
         }
 
-        Mail::send('frontend.email.sendmail', array(    
-                'data' => Session::get('cart'),
-                'email' => $emailUser[0]['email'],
-                'phone' => $emailUser[0]['phone'],
-                'user_id' => $information['user_id'],
-            ),     
-            function($message){
-                $message->to('hoale170294@gmail.com', 'Visitor')->subject('Visitor Feedback!');
-            });
-        if ($save){             
-                Session::forget('cart');
-                return response()->json(['success'=>'Bạn đã đặng hàng thành công']);
-            }
+        $request->session()->forget('cart');
 
+        return response()->json(['success'=>'Đặc hàng thành công!! Thank you.']);
     }
 
     //create comment
     public function comment(request $request)
-    {   
+    {
 
         $data = $request->all();
         $data['id_user'] = $_POST['user_id'];
         $data['comment'] = $_POST['cm_product'];
         $data['avatar'] = $_POST['avatar'];
         $data['product_id'] = $_POST['product_id'];
-            
-        if(Comment::create($data)){ 
+
+        if(Comment::create($data)){
             return response()->json(['success'=>'Cảm ơn bạn đã Comment']);
-            }
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -313,10 +367,11 @@ class ProductController extends Controller
     public function showProduct(){
         $product = Product::paginate(9);
         return view('frontend.product.product',compact('product'));
+
     }
 
     public function productRegister()
-    {   
+    {
         if (Auth::check()) {
             //get data from table category
             $getCategory = Category::all();
@@ -328,7 +383,7 @@ class ProductController extends Controller
         }else{
             return redirect('/');
         }
-        
+
     }
     /**
      * Store a newly created resource in storage.
@@ -338,18 +393,18 @@ class ProductController extends Controller
      */
     //hàm xử lý ảnh và cắt size ảnh
     public function HandlerImage($file)
-    {   
-        //toàn bộ hàm upload ảnh và cắt ảnh save vào folder 
+    {
+        //toàn bộ hàm upload ảnh và cắt ảnh save vào folder
         $ImageUpload = [];
         foreach($file as $image)
-        {   
+        {
             $name = strtotime(date('Y-m-d H:i:s')).'_'.$image->getClientOriginalName();
-  
+
             $name_small = "small_".strtotime(date('Y-m-d H:i:s')).'_'.$image->getClientOriginalName();
             $name_larger = "larger_".strtotime(date('Y-m-d H:i:s')).'_'.$image->getClientOriginalName();
-           
+
             if (!file_exists('upload/product/'.Auth::user()->id)) {
-                    mkdir('upload/product/'.Auth::user()->id);
+                mkdir('upload/product/'.Auth::user()->id);
             }
             $path = public_path('upload/product/'.Auth::user()->id.'/' . $name);
 
@@ -359,62 +414,62 @@ class ProductController extends Controller
             Image::make($image->getRealPath())->save($path);
             Image::make($image->getRealPath())->resize(84, 84)->save($path_small);
             Image::make($image->getRealPath())->resize(330, 380)->save($path_larger);
-            
-            $ImageUpload[] = $name;                              
+
+            $ImageUpload[] = $name;
         }
         return $ImageUpload;
-    
+
     }
 
     //hàm xử lý create product
     public function create(MemberProductRequest $request)
     {
-       
-       if (Auth::check()) {       
+
+        if (Auth::check()) {
             $data = $request->all();
             $count = 0;
             if ($request->hasFile('avatar')) {
-                $count = count($request->file('avatar'));             
-                if ($count > 5) {                 
-                   return redirect()->back()->withErrors('vui lòng bạn chỉ nhập tối đa 5 ảnh');   
+                $count = count($request->file('avatar'));
+                if ($count > 5) {
+                    return redirect()->back()->withErrors('vui lòng bạn chỉ nhập tối đa 5 ảnh');
                 }else{
-                    
+
                     $file = $request->file('avatar');
                     //sử dụng lại hàm và truyền biến
-                    $ImageUpload = $this->HandlerImage($file); 
+                    $ImageUpload = $this->HandlerImage($file);
                     //
                     $data['user_id'] = Auth::user()->id;
                     $data['avatar'] = json_encode($ImageUpload);
 
-                    if(Product::create($data)){           
-                    return redirect('/product/table/'.Auth::user()->id);
+                    if(Product::create($data)){
+                        return redirect('/product/table/'.Auth::user()->id);
                     }
                 }
             }
-       }else{
+        }else{
             return redirect()->back()->withErrors('vui lòng đăng nhập');
-       }
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id 
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     //show table product
     public function ShowTable($id)
-    {   
-       if (Auth::check()) {
+    {
+        if (Auth::check()) {
             $getProduct_user = Product::where('user_id',$id)->get();
 
             $getCategory = Category::all();
             $getBrand = Brands::all();
             $getSize = Size::all();
             return view('frontend.product.createproduct.table',compact('getProduct_user','getCategory','getBrand','getSize'));
-       }else{
+        }else{
             return redirect('/');
-       }
+        }
     }
 
     /**
@@ -426,7 +481,7 @@ class ProductController extends Controller
     //view show edit product
     public function ShowEdit($id)
     {
-       if (Auth::check()) {
+        if (Auth::check()) {
             //get data from table category
             $getCategory = Category::all();
             //get data from table brands
@@ -435,11 +490,11 @@ class ProductController extends Controller
             $getSize = Size::all();
             //get data from table product forlow id
             $getProduct = Product::find($id);
-          
+
             return view('frontend.product.createproduct.edit',compact('getProduct','getCategory','getBrand','getSize'));
-       }else{
-         return redirect('/');
-       }
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -459,23 +514,23 @@ class ProductController extends Controller
         //lấy dư liệu sản phẩm id = id_edit trong bản product
         $getProduct = Product::findOrFail($id);
         //mã hoá chuổi avatar thành arr avatar
-        $arrImage = json_decode($getProduct['avatar'], true); 
-        
+        $arrImage = json_decode($getProduct['avatar'], true);
+
         $countArrImage = 0;
         $countRequests = 0;
-        //kiểm tra input có file 
+        //kiểm tra input có file
         if ($request->hasFile('avatar')) {
             //kiểm tra avatar cần xoá và xoá avatar trong array
             if (!empty($getValueImage)) {
                 foreach ($arrImage as $key =>  $value) {
-                    
+
                     $name = $value;
                     $name_small = "small_".$value;
                     $name_larger = "larger_".$value;
                     //
                     $path = 'upload/product/'.Auth::user()->id.'/' .$name;
                     $path_small = 'upload/product/'.Auth::user()->id.'/' .$name_small;
-                    $path_larger = 'upload/product/'.Auth::user()->id.'/' .$name_larger;                                
+                    $path_larger = 'upload/product/'.Auth::user()->id.'/' .$name_larger;
                     if (in_array($value, $getValueImage)) {
                         unset($arrImage[$key]);
                         if (!empty($path)) {
@@ -483,28 +538,28 @@ class ProductController extends Controller
                             unlink($path_small);
                             unlink($path_larger);
                         }
-                    }                 
+                    }
                 }
             }
             $countRequests = count($request->file('avatar'));
             $countArrImage = count($arrImage);
             //điều kiện không được upload quá 5 ảnh
             if (($countArrImage + $countRequests) > 5) {
-                  return redirect()->back()->withErrors('vui lòng bạn chỉ nhập tối đa 5 ảnh');
-               }else{
-                    
-                    $file = $request->file('avatar');
-                    //sử dung lại hàm và truyền biến
-                    $ImageUpload = $this->HandlerImage($file);                 
-                    //hàm hợp nhất 2 mảng lại với nhau
-                    $merge = array_merge($arrImage,$ImageUpload);                 
-                    //hàm mã hoá array thành chuổi để lưu vào database
-                    $data['avatar'] = json_encode($merge);
-                  
-                   } 
-            
+                return redirect()->back()->withErrors('vui lòng bạn chỉ nhập tối đa 5 ảnh');
+            }else{
+
+                $file = $request->file('avatar');
+                //sử dung lại hàm và truyền biến
+                $ImageUpload = $this->HandlerImage($file);
+                //hàm hợp nhất 2 mảng lại với nhau
+                $merge = array_merge($arrImage,$ImageUpload);
+                //hàm mã hoá array thành chuổi để lưu vào database
+                $data['avatar'] = json_encode($merge);
+
+            }
+
         }else{
-           if (!empty($getValueImage)) {
+            if (!empty($getValueImage)) {
                 //
                 foreach ($arrImage as $key =>  $value) {
                     $name = $value;
@@ -522,18 +577,18 @@ class ProductController extends Controller
                             unlink($path_small);
                             unlink($path_larger);
                         }
-                    }               
+                    }
                 }
                 $stringImage = json_encode($arrImage);
-                $data['avatar'] = $stringImage;            
-           }
+                $data['avatar'] = $stringImage;
+            }
         }
-       
+
         if ($getProduct->update($data)) {
 
             return redirect()->back()->with('success', __('Update Product success.'));
         }
-       
+
     }
 
     public function evaluate(request $request)
@@ -542,7 +597,7 @@ class ProductController extends Controller
 
         if (Evaluate::create($data)) {
             return response()->json(['success'=>'Cảm ơn bạn đã đánh giá']);
-        } 
+        }
     }
 
     /**
@@ -554,7 +609,7 @@ class ProductController extends Controller
     //handle delete product and image in folder
     public function delete($id)
     {
-        $delete = Product::find($id);        
+        $delete = Product::find($id);
 
         if($delete->delete()){
             $arrImage = json_decode($delete['avatar']);
@@ -563,7 +618,7 @@ class ProductController extends Controller
                     $name = $value;
                     $name_small = "small_".$value;
                     $name_larger = "larger_".$value;
-                    //             
+                    //
                     $path = 'upload/product/'.Auth::user()->id.'/' .$name;
                     $path_small = 'upload/product/'.Auth::user()->id.'/' .$name_small;
                     $path_larger = 'upload/product/'.Auth::user()->id.'/' .$name_larger;
@@ -572,7 +627,7 @@ class ProductController extends Controller
                         unlink($path);
                         unlink($path_small);
                         unlink($path_larger);
-                    }                                
+                    }
                 }
             }
             return redirect()->back()->with('success', __('Delete product success.'));
@@ -583,3 +638,5 @@ class ProductController extends Controller
 
 
 }
+
+
