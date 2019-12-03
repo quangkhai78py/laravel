@@ -41,52 +41,45 @@ class MemberController extends Controller
      */
     public function register(MemberRegisterRequest $request)
     {
-
         $fileName = '';
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $fileName = $file->getClientOriginalName('avatar');
-            $file->move('upload',$fileName); 
+            $file->move('upload',$fileName);
         }
         $data = $request->all();
         $data['avatar'] = $fileName;
         $data['password'] = Hash::make($request->password);
         $data['level'] = '0';
-        
-        if($getIdUser = User::create($data)){
-            $information['user_id'] = $getIdUser['id'];
 
-            $emailUser = User::where('id',$information['user_id'])->get()->toArray();
+        if($data_user = User::create($data)){
+
+            $information['user_id'] = $data_user['id'];
+
             $cart = Session::get('cart');
+
+            Mail::to($data_user['email'])->send(new SendMailable($cart));
 
             foreach ($cart as $key => $value) {
                 $information['product_name'] = $value['product'];
+                $information['avatar'] = $value['image'];
                 $information['quantily'] = $value['quantily'];
                 $information['price'] = $value['price'];
-                $information['avatar'] = $value['image'];
+
                 $save = History_oder::create($information);
             }
 
-            // Mail::send('frontend.email.sendmail', array(    
-            //     'data' => Session::get('cart'),
-            //     'email' => $emailUser[0]['email'],
-            //     'phone' => $emailUser[0]['phone'],
-            //     'user_id' => $information['user_id'],
-            // ),  
-            // function($message){
-            //     $message->to($emailUser[0]['email'], 'Visitor')->subject('Visitor Feedback!');
-            // });
+            if ($save) {
+                $request->session()->forget('cart');
+                return redirect('/');
+            }
 
-            if ($save) {             
-                    Session::flush();
-                    return redirect('/');
-                }   
             return redirect()->back()->with('success', __('Update profile success.'));
         }
     }
 
-    
-    
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -96,14 +89,14 @@ class MemberController extends Controller
      */
     public function login(MemberloginRequest $request)
     {
-       $email = $request->input('username');
-       $password = $request->input('password');
+        $email = $request->input('username');
+        $password = $request->input('password');
 
-       if (Auth::attempt(['email' => $email,'password' => $password])) {
-           return redirect('/');
-       }else{
-         return redirect()->back()->withErrors('Đăng nhập thất bại vui lòng bạn kiểm tra lại thông tin đăng nhập');
-       }
+        if (Auth::attempt(['email' => $email,'password' => $password])) {
+            return redirect('/');
+        }else{
+            return redirect()->back()->withErrors('Đăng nhập thất bại vui lòng bạn kiểm tra lại thông tin đăng nhập');
+        }
     }
 
     /**
@@ -152,3 +145,5 @@ class MemberController extends Controller
         return redirect('/');
     }
 }
+
+
