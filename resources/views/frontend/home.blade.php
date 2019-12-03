@@ -11,7 +11,7 @@
 								<li data-target="#slider-carousel" data-slide-to="1"></li>
 								<li data-target="#slider-carousel" data-slide-to="2"></li>
 							</ol>
-							
+
 							<div class="carousel-inner">
 								<div class="item active">
 									<div class="col-sm-6">
@@ -25,7 +25,7 @@
 										<img src="{{asset('html/html-frontend/eshopper/images/home/pricing.png')}}"  class="pricing" alt="" />
 									</div>
 								</div>
-			
+
 								<div class="item">
 									<div class="col-sm-6">
 										<h1><span>E</span>-SHOPPER</h1>
@@ -51,9 +51,9 @@
 										<img src="{{asset('html/html-frontend/eshopper/images/home/pricing.png')}}" class="pricing" alt="" />
 									</div>
 								</div>
-								
+
 							</div>
-							
+
 							<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 								<i class="fa fa-angle-left"></i>
 							</a>
@@ -61,7 +61,7 @@
 								<i class="fa fa-angle-right"></i>
 							</a>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 		<div class="container">
 			<div class="row">
 				@include('frontend.layouts.leftside')
-				
+
 				<div class="col-sm-9 padding-right">
 					<div class="features_items" id="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
@@ -131,7 +131,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -144,7 +144,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -157,7 +157,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -170,12 +170,12 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="tab-pane fade" id="blazers" >
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
@@ -186,7 +186,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -199,7 +199,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -212,7 +212,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -225,12 +225,12 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="tab-pane fade" id="sunglass" >
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
@@ -241,7 +241,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -254,7 +254,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -267,7 +267,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -280,12 +280,12 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="tab-pane fade" id="kids" >
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
@@ -296,7 +296,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -309,7 +309,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -322,7 +322,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -335,12 +335,12 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="tab-pane fade" id="poloshirt" >
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
@@ -351,7 +351,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -364,7 +364,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -377,7 +377,7 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -390,20 +390,20 @@
 												<p>Easy Polo Black Edition</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div><!--/category-tab-->
-					
+
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">recommended items</h2>
-						
+
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-								<div class="item active">	
+								<div class="item active">
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
@@ -413,7 +413,7 @@
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -426,7 +426,7 @@
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -439,12 +439,12 @@
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="item">	
+								<div class="item">
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
@@ -454,7 +454,7 @@
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -467,7 +467,7 @@
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -480,7 +480,7 @@
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+
 											</div>
 										</div>
 									</div>
@@ -491,13 +491,35 @@
 							  </a>
 							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
 								<i class="fa fa-angle-right"></i>
-							  </a>			
+							  </a>
 						</div>
-					</div><!--/recommended_items-->	
+					</div><!--/recommended_items-->
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
-@endsection	
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('a').click(function(){
+                var getProduct_id = $(this).attr('id');
+                $.ajax({
+                    url:'/product/cart',
+                    type: 'post',
+                    data:{
+                        getProduct_id : getProduct_id,
+                    },
+                    dataType: 'json',
+                    success:function(data){
+                        $('#cart').val(data);
+                    }
+                });
+            });
+        });
+    </script>
+@endsection

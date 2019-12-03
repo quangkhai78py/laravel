@@ -105,7 +105,7 @@
                                         <td class="cart_quantity">
                                             <div  class="cart_quantity_button">
                                                 <a id="{{$valueCart['id']}}" class="cart_quantity_up"> + </a>
-                                                <input  class="cart_quantity_input" type="text" name="quantity" value="{{$valueCart['quantily']}}" autocomplete="off" size="2">
+                                                <input min="0" class="cart_quantity_input" type="text" name="quantity" value="{{$valueCart['quantily']}}" autocomplete="off" size="2">
                                                 <button style="width: 30px;height: 28px;" id="{{$valueCart['id']}}" class="cart_quantity_down" > - </button>
                                             </div>
                                         </td>
@@ -374,5 +374,6 @@
 
     </script>
 @endsection
+
 
 

@@ -14,7 +14,7 @@ class CreateEvaluateColumn extends Migration
     public function up()
     {
         Schema::table('evaluate', function (Blueprint $table) {
-            $table->integer('product_id')->after('blog_id');
+            $table->integer('product_id')->nullable()->after('blog_id');
         });
     }
 

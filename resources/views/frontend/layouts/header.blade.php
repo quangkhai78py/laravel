@@ -24,7 +24,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
+
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -43,7 +43,7 @@
 									<li><a href="">UK</a></li>
 								</ul>
 							</div>
-							
+
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 									DOLLAR
@@ -55,7 +55,7 @@
 								</ul>
 							</div>
 						</div>
-						
+
 					</div>
 					<div class="col-md-8 clearfix">
 						<div class="shop-menu clearfix pull-right">
@@ -66,18 +66,17 @@
 									<li><a href="{{url('/product/register')}}"><i class="fa fa-user"></i>Create Product</a></li>
 									<li><a href="{{url('/product/table/'.Auth::user()->id)}}"><i class="fa fa-user"></i>Table Product</a></li>
 									<li><a href=""><i class="fa fa-user"></i><?php echo Auth::user()->name?></a></li>
-								<?php		
+								<?php
 									}
 								?>
-								
+
 								<li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="{{url('/checkout/product')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="{{url('/product/cart')}}"><i class="fa fa-shopping-cart"></i>Cart<input style="width: 22px;border: none;" id="cart" value="<?php
 								if(!empty(Session::get('cart'))){
 									$cart = Session::get('cart');
 									$tong = 0;
-								        foreach ($cart as $key => $value) {     
-								            $tong += $cart[$key]['quantily'];           
+								        foreach ($cart as $key => $value) {
+								            $tong += $cart[$key]['quantily'];
 								        }
 
 								        echo $tong;
@@ -90,21 +89,21 @@
 									if (Auth::check()) {
 								?>
 									<li><a href="{{url('/logout')}}"><i class="fa fa-lock"></i>Logout</a></li>
-								<?php		
+								<?php
 									}else{
 								?>
 									<li><a href="{{url('/member/login')}}"><i class="fa fa-lock"></i> Login</a></li>
-								<?php		
+								<?php
 									}
 								?>
-								
+
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
+
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -123,25 +122,25 @@
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="{{url('/product')}}">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+										<li><a href="product-details.html">Product Details</a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="cart.html">Cart</a></li>
+										<li><a href="login.html">Login</a></li>
                                     </ul>
-                                </li> 
-								<li class="dropdown"><a href="{{url('/blog')}}">Blog<i class="fa fa-angle-down"></i></a>                        
-                                </li> 
+                                </li>
+								<li class="dropdown"><a href="{{url('/blog')}}">Blog<i class="fa fa-angle-down"></i></a>
+                                </li>
 								<li><a href="404.html">404</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
-					</div>		                                                                        
-					<div class="col-sm-3">						
-						<form method="get" style="margin-left: 50px;" class="example" action="{{url('/search/product')}}">
+					</div>
+					<div class="col-sm-3">
+						<form method="get" style="margin-left: 45px;" class="example" action="{{url('/search/product')}}">
 						@csrf
 						  <input type="text" placeholder="Search.." name="search">
 						  <button type="submit"><i class="fa fa-search"></i></button>
-						</form>													
+						</form>
 					</div>
 				</div>
 			</div>

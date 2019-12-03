@@ -27,7 +27,7 @@ class MemberRegisterRequest extends FormRequest
             'name' =>'required|max:200|min:3',
             'password' =>'required',
             'email' => 'required|max:100|min:3|unique:users',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif',
             'phone' => 'required|min:3|numeric',
             'address' => 'required',
             'country' => 'required',
@@ -46,7 +46,6 @@ class MemberRegisterRequest extends FormRequest
             'country.required'=>'vui lòng chọn quốc gia',        
             'image' => 'phải là hình ảnh',
             'mimes' => 'phải dịnh dạng như sau:jpeg,png,jpg,gif',
-            'avatar.max' => 'Maximum file size to upload :max',
             'phone.numeric'=>':attribute Chỉ được nhập số',
             'phone.min'=>'số điện thoại không được nhỏ hơn 3 ký tự',
 

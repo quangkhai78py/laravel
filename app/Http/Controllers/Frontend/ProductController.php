@@ -311,11 +311,6 @@ class ProductController extends Controller
         return response()->json(['success' => $product]);
     }
 
-    //xử lý phần checkout product
-    public function ShowcheckOutProduct(){
-        return view('frontend.product.checkOutProduct');
-    }
-
     //xử lý và lưu vào bản history oder
     public function historyTable(request $request)
     {
@@ -339,7 +334,7 @@ class ProductController extends Controller
             History_oder::create($information);
         }
 
-        $request->session()->forget('cart');
+        $request->session()->forget('cart'); 
 
         return response()->json(['success'=>'Đặc hàng thành công!! Thank you.']);
     }

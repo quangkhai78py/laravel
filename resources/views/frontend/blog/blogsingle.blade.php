@@ -15,9 +15,9 @@
 									<li><i class="fa fa-user"></i> Mac Doe</li>
 									<li><i class="fa fa-clock-o"></i>{{$getBlog['created_at']}}</li>
 								</ul>
-								<?php										
-									$tong = 0;								
-		
+								<?php
+									$tong = 0;
+
 									foreach ($getEvaluate as $value) {
 										$tong = $tong + $value['evaluate'];
 									}
@@ -25,14 +25,14 @@
 										$trung_binh = $tong/count($getEvaluate);
 										$n = round($trung_binh);
 										if (isset($n) && !empty($n)) {
-											for ($i = 1; $i <= 5 ; $i++) { 
+											for ($i = 1; $i <= 5 ; $i++) {
 												if ($i <= $n) {
 													echo '<i class="fa fa-star"><input type="hidden" value=""></i>';
 												}else{
 													echo '<i class="far fa-star"><input type="hidden" value="1"></i>';
 												}
 											}
-											
+
 										}
 									}
 								?>
@@ -40,7 +40,7 @@
 							<a href="">
 								<img style="width: 650px; height:370px;" src="{{ URL::to('upload/blog/'.$getBlog['avatar'])}}" alt="">
 							</a>
-							<p>{{$getBlog['content']}}</p> <br>
+							<p><?php echo $getBlog['content']?></p> <br>
 
 							<div class="pager-area">
 								<ul class="pager pull-right">
@@ -93,17 +93,17 @@
                             </div>
                         @endif<!--/socials-share-->
 					<!--Comments-->
-					
+
 					<div class="response-area">
 						<h2>3 RESPONSES</h2>
 						<ul class="media-list">
-							@foreach ($getComment as $value)							
+							@foreach ($getComment as $value)
 								@if($value['active'] == 0)
-										<li class="media">							
+										<li class="media">
 											<a class="pull-left" href="#">
 												<img style="width: 50px;
 												height: 50px;" class="media-object" src="{{ URL::to('upload/user/avatar/'.$value['avatar'])}}" alt="">
-											</a>								
+											</a>
 											<div class="media-body">
 												<ul class="sinlge-post-meta">
 													<li><i class="fa fa-user"></i>Janis Gallagher</li>
@@ -117,7 +117,7 @@
 										</li>
 									@endif
 								@foreach ($getReplayComment as $valueReplay)
-									
+
 									@if ($valueReplay['id_comment'] == $value['id'])
 										@if($valueReplay['active'] == 0)
 											<li class="media second-media" >
@@ -129,7 +129,7 @@
 													<ul class="sinlge-post-meta">
 														<li><i class="fa fa-user"></i>Janis Gallagher</li>
 														<li><i class="fa fa-clock-o"></i>{{$valueReplay['created_at']}}</li>
-														
+
 													</ul>
 													<p>{{$valueReplay['comment']}}</p>
 													<a class="btn btn-primary" href="#replay"><i class="fa fa-reply"></i>Replay</a>
@@ -137,9 +137,9 @@
 											</li>
 										@endif
 									@endif
-								@endforeach								
-							@endforeach	
-						</ul>					
+								@endforeach
+							@endforeach
+						</ul>
 					</div>
 					<!--/Response-area-->
 					<div class="replay-box">
@@ -158,12 +158,12 @@
 										margin-top: 20px;" class="btn btn-default">Bình Luận
 										</button>
 									</form>
-									
+
 								</div>
 							</div>
 						</div>
 					</div><!--/Repaly Box-->
-				</div>	
+				</div>
 			</div>
 		</div>
 
@@ -182,31 +182,31 @@
 
 				if (CheckUser !== null) {
 					var getBlog_id = '<?php echo $getBlog['id']; ?>';
-	              	var getValueAjax = $(this).children('input').val(); 
-	   
-	          	
+	              	var getValueAjax = $(this).children('input').val();
+
+
 	          	 	$.ajax({
 			            url : "/ajax",
 			            type : "post",
-			            data : { 
+			            data : {
 			                evaluate : getValueAjax,
 			                blog_id : getBlog_id,
 			            },
 			            success:function(data){
 				            alert(data.success);
-				           
+
 				        }
 			        });
 				}else{
 					alert('vui lòng đăng nhập.!');
 				};
-				
+
 		    });
-                
-          
+
+
 		  	$(".replay").click(function(){
 		  	//
-			    var getValue = $(this).attr('id') 
+			    var getValue = $(this).attr('id')
 			    //
 			  	$('input#id_comment').val(getValue);
 		  });

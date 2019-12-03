@@ -23,20 +23,20 @@
     <script src="{{asset('html/html-frontend/eshopper/js/price-range.js')}}"></script>
     <script src="{{asset('html/html-frontend/eshopper/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('html/html-frontend/eshopper/js/main.js')}}"></script>
-    <script type="text/javascript" src="{{asset('editor/ckeditor/ckeditor.js')}}"></script>      
+    <script type="text/javascript" src="{{asset('editor/ckeditor/ckeditor.js')}}"></script>
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    
+
 </head><!--/head-->
 
 <body>
 
 	@include('frontend.layouts.header')
-	
+
 	@yield('content')
 
 	@include('frontend.layouts.footer')
@@ -48,28 +48,6 @@
     <script src="{{asset('html/html-frontend/eshopper/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('html/html-frontend/eshopper/js/main.js')}}"></script>
 	<script type="text/javascript">
-        $(document).ready(function(){
-            $.ajaxSetup({
-                headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $('a').click(function(){
-                var getProduct_id = $(this).attr('id');
-                $.ajax({
-                    url:'/product/cart',
-                    type: 'post',
-                    data:{
-                        getProduct_id : getProduct_id,
-                    },                   
-                    dataType: 'json',
-                    success:function(data){
-                        $('#cart').val(data);                  
-                    }
-                });
-            });
-        });
 
         $(document).ready(function(){
             $.ajaxSetup({
@@ -80,7 +58,7 @@
 
             $('.slider-track').click(function(){
                 var text_val = $('.tooltip').children('.tooltip-inner').text();
-                
+
                 $.ajax({
                     url:'/search/product',
                     type:'post',
@@ -92,7 +70,7 @@
                     {
                         var array = data.success;
                         var html = '';
-                            $.map(array, function(value, index){            
+                            $.map(array, function(value, index){
                             var arrayImg = JSON.parse(value['avatar']);
                             html += '<div class="col-sm-4">' +
                                             '<div class="product-image-wrapper">'+
@@ -122,13 +100,13 @@
                                                     '</ul>'+
                                                 '</div>'+
                                             '</div>'+
-                                    '</div>';                       
+                                    '</div>';
                                 $('#features_items').html(html);
                         });
                     }
                 });
             });
-            
+
         });
     </script>
 </body>

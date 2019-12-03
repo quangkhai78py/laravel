@@ -27,7 +27,7 @@
 										<li><a href="">Puma</a></li>
 										<li><a href="">ASICS </a></li>
 									</ul>
-								</div>	
+								</div>
 							</div>
 						</div>
 						<div class="panel panel-default">
@@ -56,7 +56,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h4 class="panel-title">
@@ -114,7 +114,7 @@
 							</div>
 						</div>
 					</div><!--/category-products-->
-				
+
 					<div class="brands_products"><!--brands_products-->
 						<h2>Brands</h2>
 						<div class="brands-name">
@@ -129,7 +129,7 @@
 							</ul>
 						</div>
 					</div><!--/brands_products-->
-					
+
 					<div class="price-range"><!--price-range-->
 						<h2>Price Range</h2>
 						<div class="well">
@@ -137,7 +137,7 @@
 							 <b>$ 0</b> <b class="pull-right">$ 600</b>
 						</div>
 					</div><!--/price-range-->
-					
+
 					<div class="shipping text-center"><!--shipping-->
 						<img src="{{asset('html/html-frontend/eshopper/images/home/shipping.jpg')}}" alt="" />
 					</div><!--/shipping-->
@@ -155,14 +155,14 @@
 									<li><i class="fa fa-clock-o"></i> 1:33 pm</li>
 									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
 								</ul>
-								<span>										
+								<span>
 								</span>
 							</div>
 							<a href="{{url('/single/blog/'.$value['id'])}}">
-								<img style="width: 650px; height:370px; 
+								<img style="width: 650px; height:370px;
 								" src="{{ URL::to('upload/blog/'.$value['avatar'])}}" alt="">
 							</a>
-							<p>{{mb_substr($value['content'],0,500)}}....<a href="{{url('/single/blog/'.$value['id'])}}">xem thêm</a></p>
+							<p><?php echo mb_substr($value['content'],0,500)?>....<a href="{{url('/single/blog/'.$value['id'])}}">xem thêm</a></p>
 							<a  class="btn btn-primary" href="{{url('/single/blog/'.$value['id'])}}">Read More</a>
 						</div>
 					@endforeach

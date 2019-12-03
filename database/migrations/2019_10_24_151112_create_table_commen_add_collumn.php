@@ -14,7 +14,7 @@ class CreateTableCommenAddCollumn extends Migration
     public function up()
     {
          Schema::table('comment', function (Blueprint $table) {
-            $table->integer('product_id')->after('id_blog');
+            $table->integer('product_id')->nullable()->after('id_blog');
         });
     }
 

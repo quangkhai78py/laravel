@@ -16,7 +16,7 @@ class CreateEvaluateTable extends Migration
         Schema::create('evaluate', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('blog_id');
+            $table->integer('blog_id')->nullable();
             $table->integer('evaluate');
             $table->timestamps();
         });

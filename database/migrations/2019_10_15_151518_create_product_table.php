@@ -22,9 +22,8 @@ class CreateProductTable extends Migration
             $table->string('product');
             $table->integer('price');
             $table->integer('quantily');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('size_id');
-            $table->integer('libraryimg_id');
             $table->timestamps();
         });
     }

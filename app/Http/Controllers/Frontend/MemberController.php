@@ -15,6 +15,10 @@ use App\Http\Requests\Frontend\MemberRegisterRequest;
 use App\Http\Requests\Frontend\MemberloginRequest;
 //gọi hàm kiểm tra đăng nhập
 use Illuminate\Support\Facades\Auth;
+//gọi hàm send mail
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
+//goi ham session
 use Session;
 
 class MemberController extends Controller
@@ -45,7 +49,8 @@ class MemberController extends Controller
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $fileName = $file->getClientOriginalName('avatar');
-            $file->move('upload',$fileName);
+            $file->move('upload/user/avatar',$fileName);
+
         }
         $data = $request->all();
         $data['avatar'] = $fileName;
@@ -53,12 +58,12 @@ class MemberController extends Controller
         $data['level'] = '0';
 
         if($data_user = User::create($data)){
-
+            dd($data_user);
             $information['user_id'] = $data_user['id'];
-
+            $email = $data_user['email'];
             $cart = Session::get('cart');
 
-            Mail::to($data_user['email'])->send(new SendMailable($cart));
+            Mail::to($email)->send(new SendMailable($cart, $data_user));
 
             foreach ($cart as $key => $value) {
                 $information['product_name'] = $value['product'];

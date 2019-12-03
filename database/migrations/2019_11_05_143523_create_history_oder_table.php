@@ -18,7 +18,7 @@ class CreateHistoryOderTable extends Migration
             $table->integer('user_id');
             $table->string('product_name');
             $table->integer('quantily');
-            $table->integer('total_bill');
+            $table->integer('price');
             $table->timestamps();
         });
     }
