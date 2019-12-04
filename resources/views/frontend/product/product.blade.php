@@ -11,7 +11,7 @@
 								<li data-target="#slider-carousel" data-slide-to="1"></li>
 								<li data-target="#slider-carousel" data-slide-to="2"></li>
 							</ol>
-							
+
 							<div class="carousel-inner">
 								<div class="item active">
 									<div class="col-sm-6">
@@ -25,7 +25,7 @@
 										<img src="{{asset('html/html-frontend/eshopper/images/home/pricing.png')}}"  class="pricing" alt="" />
 									</div>
 								</div>
-			
+
 								<div class="item">
 									<div class="col-sm-6">
 										<h1><span>E</span>-SHOPPER</h1>
@@ -51,9 +51,9 @@
 										<img src="{{asset('html/html-frontend/eshopper/images/home/pricing.png')}}" class="pricing" alt="" />
 									</div>
 								</div>
-								
+
 							</div>
-							
+
 							<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 								<i class="fa fa-angle-left"></i>
 							</a>
@@ -61,26 +61,26 @@
 								<i class="fa fa-angle-right"></i>
 							</a>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
 	</section><!--/slider-->
 	<div class="container">
 		<div class="row">
-			@include('frontend.layouts.leftside')			
+			@include('frontend.layouts.leftside')
 			<div class="col-sm-9 padding-right">
 				<div class="features_items" id="features_items"><!--features_items-->
 					<h2 class="title text-center">Features Items</h2>
 					@foreach ($product as $valueProduct)
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
 									<?php
 										$avatar = json_decode($valueProduct['avatar'], true);
 									?>
-									<img src="{{URL::to('upload/product/'.$valueProduct['user_id'].'/'.$avatar['0'])}}">
+									<img src="{{URL::to('upload/product/'.$avatar['0'])}}">
 									<h2>${{number_format($valueProduct['price'])}}</h2>
 									<p>{{$valueProduct['product']}}</p>
 									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -108,5 +108,5 @@
 				</div>
 			</div>
 		</div>
-	</div>			
+	</div>
 @endsection
