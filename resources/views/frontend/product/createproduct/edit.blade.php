@@ -8,7 +8,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-4" style="width: 69%; margin-left: 200px;" >
-							<?php  
+							<?php
 								$avatar = json_decode($getProduct['avatar']);
 							?>
 							@if(session('success'))
@@ -47,7 +47,7 @@
 							     			@if ($getProduct['brand_id'] == $valueBrand['id'])
 							     			<option value="{{$valueBrand['id']}}">{{$valueBrand['brand']}}</option>
 							     			@endif
-							     		@endforeach					
+							     		@endforeach
 									</select>
 									<p>Size:</p>
 									<select name="size_id" style="margin-bottom: 10px; height: 40px;">
@@ -55,7 +55,7 @@
 							     			@if ($getProduct['size_id'] == $valueSize['id'])
 							     			<option value="{{$valueSize['id']}}">{{$valueSize['size']}}</option>
 							     			@endif
-							     		@endforeach					
+							     		@endforeach
 									</select>
 									<p>Name Product:</p>
 									<input type="text" placeholder="Name Product" name="product" value="{{$getProduct['product']}}" />
@@ -67,18 +67,18 @@
 									<div style="width: 100%; margin-bottom: 20px;">
 										@foreach($avatar as $valueImage)
 										<div style="width: 15%;float: left;">
-											<img style="width: 90%;" src="{{ URL::to('upload/product/'.Auth::user()->id.'/'.$valueImage)}}">
+											<img style="width: 90%;" src="{{ URL::to('upload/product/'.$valueImage)}}">
 
-										 	<input style="width: 16%; margin-left: 40px;" type="checkbox" name="active[]" value="{{$valueImage}}"> 
+										 	<input style="width: 16%; margin-left: 40px;" type="checkbox" name="active[]" value="{{$valueImage}}">
 										</div>
 										@endforeach
 									</div>
-									
+
 									<input id="Image" type="file" name="avatar[]" multiple/>
-									
+
 									<textarea style="height: 100px; margin-bottom: 20px;" placeholder="Description" name="description" >{{$getProduct['description']}}</textarea>
 									<button type="submit" class="btn btn-default">Update Product</button>
-									
+
 								</form>
 							</div><!--/sign up form-->
 						</div>

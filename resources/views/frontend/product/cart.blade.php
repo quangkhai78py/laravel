@@ -94,7 +94,7 @@
                                         $avatar = json_decode($valueProduct['avatar'], true);
                                         ?>
                                         <td class="cart_product">
-                                            <a href=""><img style="width: 150px;" src="{{URL::to('upload/product/'.$valueProduct['user_id'].'/'.$avatar['0'])}}"></a>
+                                            <a href=""><img style="width: 150px;" src="{{URL::to('upload/product/'.$avatar['0'])}}"></a>
                                         </td>
                                         <td class="cart_description">
                                             <h4><a>{{$valueProduct['product']}}</a></h4>

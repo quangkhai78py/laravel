@@ -76,14 +76,14 @@
 						<h2 class="title text-center">Features Items</h2>
 
 						@foreach ($product as $valueProduct)
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
 										<?php
 											$avatar = json_decode($valueProduct['avatar'], true);
 										?>
-										<img src="{{URL::to('upload/product/'.$valueProduct['user_id'].'/'.$avatar['0'])}}">
+										<img src="{{URL::to('upload/product/'.$avatar['0'])}}">
 										<h2>${{number_format($valueProduct['price'])}}</h2>
 										<p>{{$valueProduct['product']}}</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>

@@ -17,9 +17,9 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr>	  
+	    <tr>
 	    	@foreach ($getProduct_user as $valueProduct)
-	    	<?php 
+	    	<?php
 	    		$avatar = json_decode($valueProduct['avatar']);
 
 	    	?>
@@ -43,7 +43,7 @@
 			<td style="text-align: center;">{{$valueProduct['quantily']}}</td>
 			<td style="text-align: center;">
 				@foreach ($avatar  as $valueImage)
-					<img style="width: 50px;" src="{{ URL::to('upload/product/'.Auth::user()->id.'/'.$valueImage)}}">
+					<img style="width: 50px;" src="{{ URL::to('upload/product/'.$valueImage)}}">
 				@endforeach
 			</td>
 			<td style="text-align: center;">{{$valueProduct['description']}}</td>

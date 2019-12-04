@@ -72,12 +72,11 @@
                         var html = '';
                             $.map(array, function(value, index){
                             var arrayImg = JSON.parse(value['avatar']);
-                            html += '<div class="col-sm-4">' +
+                            html += '<div class="col-sm-3">' +
                                             '<div class="product-image-wrapper">'+
                                                 '<div class="single-products">'+
                                                     '<div class="productinfo text-center">'+
-                                                        '<img src="upload/product/'+value['user_id']+
-                                                        '/'+arrayImg[0]+'">'+
+                                                        '<img src="upload/product/'+arrayImg[0]+'">'+
                                                         '<h2>$'+value['price']+'</h2>'+
                                                         '<p>'+value['product']+'</p>'+
                                                         '<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>'+

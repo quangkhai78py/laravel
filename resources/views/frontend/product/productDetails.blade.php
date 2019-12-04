@@ -14,8 +14,8 @@
 								$avatar = json_decode($productDetails['avatar'], true);
 
 							?>
-								<img class="abc" src="{{URL::to('upload/product/'.$productDetails['user_id'].'/'.$avatar[0])}}" alt="" />
-								<a class="abc" href="{{URL::to('upload/product/'.$productDetails['user_id'].'/larger_'.$avatar[0])}}" rel="prettyPhoto"><h3>ZOOM</h3></a>
+								<img class="abc" src="{{URL::to('upload/product/'.$avatar[0])}}" alt="" />
+								<a class="abc" href="{{URL::to('upload/product/'.'/larger_'.$avatar[0])}}" rel="prettyPhoto"><h3>ZOOM</h3></a>
 
 						</div>
 						<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -23,12 +23,12 @@
 						    <div class="carousel-inner">
 								<div class="item active">
 								 	@foreach ($avatar as $valueImage)
-								  	<a href="#abc" ><img id="{{mb_substr($valueImage,0,16)}}"   src="{{URL::to('upload/product/'.$productDetails['user_id'].'/small_'.$valueImage)}}" alt=""></a>
+								  	<a href="#abc" ><img id="{{mb_substr($valueImage,0,16)}}"   src="{{URL::to('upload/product/'.'/small_'.$valueImage)}}" alt=""></a>
 								  	@endforeach
 								</div>
 								<div class="item">
 								 	@foreach ($avatar as $valueImage)
-								  	<a href="#abc"><img id="{{mb_substr($valueImage,0,16)}}" src="{{URL::to('upload/product/'.$productDetails['user_id'].'/small_'.$valueImage)}}" alt=""></a>
+								  	<a href="#abc"><img id="{{mb_substr($valueImage,0,16)}}" src="{{URL::to('upload/product/'.'/small_'.$valueImage)}}" alt=""></a>
 								  	@endforeach
 								</div>
 							</div>
@@ -525,7 +525,7 @@
 												    '</div>'+
 												'</li>';
 
-							
+
 							var html_comment_children ='<div style="width: 420px; margin-left: 124px; margin-bottom:10px;>'+
 														'<li class="media second-media" style="width: 412px; margin:0px 0px; padding: 5px 5px 5px 5px;">'+
 															'<a class="pull-left" href="#">'+
@@ -588,7 +588,7 @@
 		//get name form str6 come str25
 			var nameImage = file.substr(6, 25);
 		//set src
-			var image = '<?php echo URL::to('upload/product/'.$productDetails['user_id'].'/larger_')?>'+nameImage+'';
+			var image = '<?php echo URL::to('upload/product/'.'larger_')?>'+nameImage+'';
 		//chèn srcImage vào class 'abc'
 			var srcImage = $(".abc").attr("src",image);
 			var srcImage = $(".abc").attr("href",image);

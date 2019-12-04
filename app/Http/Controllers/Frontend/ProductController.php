@@ -334,7 +334,7 @@ class ProductController extends Controller
             History_oder::create($information);
         }
 
-        $request->session()->forget('cart'); 
+        $request->session()->forget('cart');
 
         return response()->json(['success'=>'Đặc hàng thành công!! Thank you.']);
     }
@@ -398,13 +398,13 @@ class ProductController extends Controller
             $name_small = "small_".strtotime(date('Y-m-d H:i:s')).'_'.$image->getClientOriginalName();
             $name_larger = "larger_".strtotime(date('Y-m-d H:i:s')).'_'.$image->getClientOriginalName();
 
-            if (!file_exists('upload/product/'.Auth::user()->id)) {
-                mkdir('upload/product/'.Auth::user()->id);
+            if (!file_exists('upload/product/')) {
+                mkdir('upload/product/');
             }
-            $path = public_path('upload/product/'.Auth::user()->id.'/' . $name);
+            $path = public_path('upload/product/' . $name);
 
-            $path_small = public_path('upload/product/'.Auth::user()->id.'/' . $name_small);
-            $path_larger = public_path('upload/product/'.Auth::user()->id.'/' . $name_larger);
+            $path_small = public_path('upload/product/'. $name_small);
+            $path_larger = public_path('upload/product/'. $name_larger);
 
             Image::make($image->getRealPath())->save($path);
             Image::make($image->getRealPath())->resize(84, 84)->save($path_small);
@@ -523,9 +523,9 @@ class ProductController extends Controller
                     $name_small = "small_".$value;
                     $name_larger = "larger_".$value;
                     //
-                    $path = 'upload/product/'.Auth::user()->id.'/' .$name;
-                    $path_small = 'upload/product/'.Auth::user()->id.'/' .$name_small;
-                    $path_larger = 'upload/product/'.Auth::user()->id.'/' .$name_larger;
+                    $path = 'upload/product/'.$name;
+                    $path_small = 'upload/product/'.$name_small;
+                    $path_larger = 'upload/product/'.$name_larger;
                     if (in_array($value, $getValueImage)) {
                         unset($arrImage[$key]);
                         if (!empty($path)) {
@@ -561,9 +561,9 @@ class ProductController extends Controller
                     $name_small = "small_".$value;
                     $name_larger = "larger_".$value;
                     //
-                    $path = 'upload/product/'.Auth::user()->id.'/' .$name;
-                    $path_small = 'upload/product/'.Auth::user()->id.'/' .$name_small;
-                    $path_larger = 'upload/product/'.Auth::user()->id.'/' .$name_larger;
+                    $path = 'upload/product/'.$name;
+                    $path_small = 'upload/product/'.$name_small;
+                    $path_larger = 'upload/product/'.$name_larger;
                     //
                     if (in_array($value, $getValueImage)) {
                         unset($arrImage[$key]);
@@ -614,9 +614,9 @@ class ProductController extends Controller
                     $name_small = "small_".$value;
                     $name_larger = "larger_".$value;
                     //
-                    $path = 'upload/product/'.Auth::user()->id.'/' .$name;
-                    $path_small = 'upload/product/'.Auth::user()->id.'/' .$name_small;
-                    $path_larger = 'upload/product/'.Auth::user()->id.'/' .$name_larger;
+                    $path = 'upload/product/'.$name;
+                    $path_small = 'upload/product/'.$name_small;
+                    $path_larger = 'upload/product/'.$name_larger;
                     //
                     if(!empty($path) && !empty($path_small) && !empty($path_larger)) {
                         unlink($path);

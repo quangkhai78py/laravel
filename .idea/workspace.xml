@@ -2,164 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="030345ae-9d14-49ef-b906-1ccee0a15aac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/bapvn.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/MemberController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Frontend/MemberRegisterRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Frontend/MemberRegisterRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_06_080905_create_blog_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_06_080905_create_blog_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_07_102722_create_comment_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_07_102722_create_comment_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_12_082405_create_evaluate_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_12_082405_create_evaluate_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_15_151518_create_product_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_15_151518_create_product_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_24_151112_create_table_commen_add_collumn.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_24_151112_create_table_commen_add_collumn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_153818_create_evaluate_column.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_28_153818_create_evaluate_column.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_05_143523_create_history_oder_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_05_143523_create_history_oder_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/anh1.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/anh3.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/cart1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/cart2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/cart4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816612_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816612_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816638_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816638_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816638_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816946_gallery3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816997_gallery3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816997_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1571816997_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1572074510_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1572074511_anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/1572167075_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816612_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816612_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816638_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816638_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816638_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816946_gallery3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816997_gallery3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816997_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1571816997_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1572074510_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1572074511_anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/larger_1572167075_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816612_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816612_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816638_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816638_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816638_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816946_gallery3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816997_gallery3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816997_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1571816997_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1572074510_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1572074511_anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/2/small_1572167075_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816013_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816043_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816078_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816146_girl3 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816277_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816334_anh5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816334_anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816334_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571816335_anh4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571817036_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571817036_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1571817036_girl3 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572181980_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572181981_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572181998_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572182014_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572182014_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572182036_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572182036_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572182133_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572182248_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572247233_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1572257769_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1573140871_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/1573141630_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816013_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816043_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816078_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816146_girl3 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816277_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816334_anh5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816334_anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816334_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571816335_anh4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571817036_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571817036_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1571817036_girl3 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572181980_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572181981_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572181998_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572182014_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572182014_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572182036_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572182036_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572182133_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572182248_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572247233_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1572257769_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1573140871_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/larger_1573141630_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816013_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816043_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816078_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816146_girl3 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816277_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816334_anh5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816334_anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816334_anh7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571816335_anh4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571817036_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571817036_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1571817036_girl3 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572181980_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572181981_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572181998_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572182014_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572182014_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572182036_gallery1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572182036_girl1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572182133_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572182248_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572247233_gallery4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1572257769_girl3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1573140871_gallery2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/3/small_1573141630_girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/1552989008_nha-trang-9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/Hinh-Nen-La-Phong-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/Hinh-Nen-La-Phong-16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/anh.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/anh2.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/anh3.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/avatar/anh6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/user/fhv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/z.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/zxc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/blog/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/blog/blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/blog/blogsingle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/blog/blogsingle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/1575359282_product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/1575359282_product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/1575359282_product5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/larger_1575359282_product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/larger_1575359282_product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/larger_1575359282_product5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/small_1575359282_product3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/small_1575359282_product4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/product/4/small_1575359282_product5.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/email/sendmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/email/sendmail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/product/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product/createproduct/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/createproduct/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product/createproduct/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/createproduct/table.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/product/productDetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/productDetails.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,10 +160,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.HTML" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -346,7 +208,8 @@
       <workItem from="1575336470362" duration="1532000" />
       <workItem from="1575338003695" duration="1036000" />
       <workItem from="1575339041505" duration="6519000" />
-      <workItem from="1575346687572" duration="6162000" />
+      <workItem from="1575346687572" duration="8923000" />
+      <workItem from="1575422176716" duration="12929000" />
     </task>
     <servers />
   </component>
@@ -367,14 +230,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575344134213">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575422334705">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1575344134213" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1575346664854">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1575422334705" />
+    <state x="252" y="36" width="1022" height="1044" key="SettingsEditor" timestamp="1575432679616">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1575346664854" />
+    <state x="252" y="36" width="1022" height="1044" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1575432679616" />
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1575346689320">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

@@ -57,11 +57,14 @@ class MemberController extends Controller
         $data['password'] = Hash::make($request->password);
         $data['level'] = '0';
 
-        if($data_user = User::create($data)){
-            dd($data_user);
-            $information['user_id'] = $data_user['id'];
-            $email = $data_user['email'];
+        if($user = User::create($data)){
+
+            $information['user_id'] = $user['id'];
+            $email = $user['email'];
+
             $cart = Session::get('cart');
+
+            $data_user = User::where('id',$user['id'])->get();
 
             Mail::to($email)->send(new SendMailable($cart, $data_user));
 
@@ -76,6 +79,7 @@ class MemberController extends Controller
 
             if ($save) {
                 $request->session()->forget('cart');
+
                 return redirect('/');
             }
 
