@@ -46,7 +46,7 @@ Route::group([
 
 	//solution 2 cmt and replay
 	// Route::get('/getComment/{id}','ProductController@replayComment')->name('replay.Comment');
-	
+
 	//route of evaluate product
 	Route::post('/product/evaluate','ProductController@evaluate')->name('product.evaluate');
 	//route of search product
@@ -63,6 +63,9 @@ Route::group([
 	Route::post('/history/table/cart','ProductController@historyTable')->name('history.table.cart');
 	//Route::get('/product/cart/{id}','ProductController@getProductCart')->name('get.product.cart');
 
+    //route of profile user
+    Route::get('/profile/user/{id}','MemberController@profile')->name('profile.user');
+    Route::post('/profile/user/{id}','MemberController@update')->name('update.user');
 	//route of check out product
 	Route::get('/checkout/product','ProductController@ShowcheckOutProduct')->name('Show.checkOut.Product');
 });

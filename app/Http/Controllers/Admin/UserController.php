@@ -45,7 +45,7 @@ class UserController extends Controller
         $getCountry = Country::All()->toArray();
         return view('admin.user.profile', compact('getUser','getCountry'));
         return view('admin.user.header', compact('getUser'));
-    
+
     }
 
     /**
@@ -63,33 +63,33 @@ class UserController extends Controller
         if (isset($_POST['password']) && !empty($_POST['password'])) {
             $data['password'] = Hash::make($request->password);
         }else{
-            if (!empty($user['password'])) {           
+            if (!empty($user['password'])) {
                 $data['password'] = $user['password'];
             }
         }
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $fileName = $file->getClientOriginalName('avatar');
-            $data['avatar'] = $fileName;                 
+            $data['avatar'] = $fileName;
         }
         if ($user->update($data)) {
-            //check forder có tồn tại hay không.      
-            if (!file_exists('upload/user/avatar/')) {
-            //nếu không tồn tại thì tạo forder mới.        
-                mkdir('upload/user/avatar/');                       
+            //check forder có tồn tại hay không.
+            if (!file_exists('upload/user/avatar/UserAdmin')) {
+            //nếu không tồn tại thì tạo forder mới.
+                mkdir('upload/user/avatar/UserAdmin');
             }
             if (!empty($file)) {
                 //truyền biến $file vào thư mục.
-                $file->move('upload/user/avatar/',$fileName);
-                  //xoá file avatar cũ. 
+                $file->move('upload/user/avatar/UserAdmin',$fileName);
+                  //xoá file avatar cũ.
                     $getUser = Auth::user();
                     if (!empty($getUser['avatar'])) {
-                         $Path = 'upload/user/avatar/'.$getUser['avatar'];
+                         $Path = 'upload/user/avatar/UserAdmin/'.$getUser['avatar'];
                             if(!empty($Path)) {
                                 unlink($Path);
-                            }                   
-                    }      
-            }                     
+                            }
+                    }
+            }
             return redirect()->back()->with('success', __('Update profile success.'));
         }else{
             return redirect()->back()->withErrors('Update profile error.');

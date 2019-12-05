@@ -65,7 +65,7 @@
 								?>
 									<li><a href="{{url('/product/register')}}"><i class="fa fa-user"></i>Create Product</a></li>
 									<li><a href="{{url('/product/table/'.Auth::user()->id)}}"><i class="fa fa-user"></i>Table Product</a></li>
-									<li><a href=""><i class="fa fa-user"></i><?php echo Auth::user()->name?></a></li>
+									<li><a href="{{url('/profile/user/'.Auth::user()->id)}}"><i class="fa fa-user"></i><?php echo Auth::user()->name?></a></li>
 								<?php
 									}
 								?>

@@ -13,6 +13,7 @@ use App\Models\History_oder;
 //gọi requests
 use App\Http\Requests\Frontend\MemberRegisterRequest;
 use App\Http\Requests\Frontend\MemberloginRequest;
+use App\Http\Requests\Frontend\UpdateProfileUser;
 //gọi hàm kiểm tra đăng nhập
 use Illuminate\Support\Facades\Auth;
 //gọi hàm send mail
@@ -23,11 +24,7 @@ use Session;
 
 class MemberController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function showLogin()
     {
         return view('frontend.member.login');
@@ -38,11 +35,7 @@ class MemberController extends Controller
         $getCountry = Country::all()->toArray();
         return view('frontend.member.register',compact('getCountry'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function register(MemberRegisterRequest $request)
     {
         $fileName = '';
@@ -89,15 +82,6 @@ class MemberController extends Controller
         }
     }
 
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function login(MemberloginRequest $request)
     {
         $email = $request->input('username');
@@ -110,46 +94,60 @@ class MemberController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function profile($id)
     {
-        //
+        $data_user = User::findOrFail($id)->toArray();
+        $data_country = Country::all()->toArray();
+        return view('frontend.user.profile',compact('data_user','data_country'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(UpdateProfileUser $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $data = $request->all();
+        if (isset($_POST['password']) && !empty($_POST['password'])) {
+            $data['password'] = Hash::make($request->password);
+        }else{
+            if (!empty($user['password'])) {
+                $data['password'] = $user['password'];
+            }
+        }
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $fileName = $file->getClientOriginalName('avatar');
+            $data['avatar'] = $fileName;
+        }
+        //check forder có tồn tại hay không.
+        if (!file_exists('upload/user/avatar/UserFrontend')) {
+            //nếu không tồn tại thì tạo forder mới.
+            mkdir('upload/user/avatar/UserFrontend');
+        }
+        if (!empty($file)) {
+            //truyền biến $file vào thư mục.
+            $file->move('upload/user/avatar/UserFrontend',$fileName);
+            //xoá file avatar cũ.
+            if (!empty($user['avatar'])) {
+                $Path = 'upload/user/avatar/UserFrontend/'.$user['avatar'];
+                if(!empty($Path)) {
+                    unlink($Path);
+                    if($user->update($data)){
+                        return redirect()->back()->with('success', __('Update profile success.'));
+                    }
+                }
+            }
+        }else{
+            $user->update($data);
+            return redirect()->back()->with('success',__('update profile success'));
+        }
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function logout()
     {
         Auth::logout();
