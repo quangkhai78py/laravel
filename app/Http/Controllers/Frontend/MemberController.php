@@ -59,28 +59,30 @@ class MemberController extends Controller
 
         if($user = User::create($data)){
 
-            $information['user_id'] = $user['id'];
-            $email = $user['email'];
+            if (!empty(Session::get('cart'))){
+                $information['user_id'] = $user['id'];
+                $email = $user['email'];
 
-            $cart = Session::get('cart');
+                $cart = Session::get('cart');
 
-            $data_user = User::where('id',$user['id'])->get();
+                $data_user = User::where('id',$user['id'])->get();
 
-            Mail::to($email)->send(new SendMailable($cart, $data_user));
+                Mail::to($email)->send(new SendMailable($cart, $data_user));
 
-            foreach ($cart as $key => $value) {
-                $information['product_name'] = $value['product'];
-                $information['avatar'] = $value['image'];
-                $information['quantily'] = $value['quantily'];
-                $information['price'] = $value['price'];
+                foreach ($cart as $key => $value) {
+                    $information['product_name'] = $value['product'];
+                    $information['avatar'] = $value['image'];
+                    $information['quantily'] = $value['quantily'];
+                    $information['price'] = $value['price'];
 
-                $save = History_oder::create($information);
-            }
+                    $save = History_oder::create($information);
+                }
 
-            if ($save) {
-                $request->session()->forget('cart');
+                if ($save) {
+                    $request->session()->forget('cart');
 
-                return redirect('/');
+                    return redirect('/');
+                }
             }
 
             return redirect()->back()->with('success', __('Update profile success.'));
