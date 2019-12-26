@@ -42,7 +42,7 @@ class MemberController extends Controller
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $fileName = $file->getClientOriginalName('avatar');
-            $file->move('upload/user/avatar',$fileName);
+            $file->move('upload/user/avatar/UserFrontend/',$fileName);
 
         }
         $data = $request->all();
@@ -143,7 +143,7 @@ class MemberController extends Controller
             }
         }else{
             $user->update($data);
-            return redirect()->back()->with('success',__('update profile success'));
+            return redirect()->back()->with('success',__('Register profile success'));
         }
 
     }

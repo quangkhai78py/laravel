@@ -620,6 +620,7 @@
 					},
 					dataType: 'json',
 					success:function(data){
+						console.log(data);
 			            alert(data.success);
 			        }
 				});

@@ -20,5 +20,5 @@ Route::group([
 	'namespace'=>'Api',
 ],function(){
 	Route::get('/abc','ApiController@list');
-
+	Route::get('/user','ApiController@user');
 });
